@@ -1,5 +1,7 @@
 ---
 import Card from '@components/Card.astro';
+import Badge from '@components/Badge.astro';
+import List from '@components/List.astro';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
@@ -8,22 +10,16 @@ interface Props {
 
 const { item } = Astro.props;
 const { data: experience } = item;
+
+const functions = experience?.functions?.map( ( job ) => job.title );
 ---
 
 
 <Card class="flex flex-col items-start gap-4">
-  <div class="inline-flex items-center bg-white dark:bg-black rounded-full py-1 px-3 text-sm">
+  <Badge>
     {`${experience.from} - ${experience.to}`}
-  </div>
+  </Badge>
   <h2 class="text-2xl">{experience.title}</h2>
   <p>{experience.description}</p>
-  <ul class="flex flex-col gap-2 list-disc list-inside marker:text-neutral-400">
-    { experience?.functions.map( ( job ) => (
-      <li class="list-item">
-        <div class="inline-flex items-center gap-4">
-          <span>{job.title}</span>
-        </div>
-      </li>
-    )) }
-  </ul>
+  <List list={functions} />
 </Card>
