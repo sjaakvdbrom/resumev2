@@ -1,23 +1,15 @@
 ---
-import Card from '@components/Card.astro';
 import { getCollection } from 'astro:content';
+import Position from '@components/Position.astro';
 
 const experience = await getCollection('experience');
 ---
 
 <div class="row-start-2 col-span-8 flex flex-col gap-6">
   <h2 class="text-2xl">Last positions</h2>
-  <div class="flex flex-col gap-4">
+  <div class="flex flex-col gap-6">
     { experience && experience.map( ( item ) => (
-      <Card>
-        <h2>{item.data.title}</h2>
-        <p>{item.data.description}</p>
-        <ul>
-          { item.data?.functions.map( ( item ) => (
-            <li>{item.title}: {item.from}-{item.to}</li>
-          )) }
-        </ul>
-      </Card>
+      <Position item={item} />
     ) ) }
   </div>
 </div>
