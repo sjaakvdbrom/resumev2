@@ -7,8 +7,8 @@ const experience = await getCollection('experience');
 const sortedExperience = experience.sort( ( a, b ) => b.data.order - a.data.order );
 ---
 
-<Section class="lg:row-start-2 col-span-full lg:col-span-8" title="Ervaring">
-  <div class="flex flex-col gap-4">
+<Section class="lg:row-start-2 col-span-full" title="Ervaring">
+  <div class="grid gap-4 lg:grid-cols-3">
     { experience && sortedExperience.map( ( item ) => (
       <Position item={item} />
     ) ) }
