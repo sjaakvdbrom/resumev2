@@ -10,7 +10,7 @@ const { list } = Astro.props;
   { list.map( ( li ) => (
     <li class="list-item">
       <div class="inline-flex items-center gap-4">
-        <span>{li}</span>
+        <span class="dark:text-neutral-400">{li}</span>
       </div>
     </li>
   )) }
