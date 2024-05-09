@@ -1,5 +1,9 @@
 title: Tickles
 description: Development, optimalisatie en doorontwikkeling van Magento 2 webshops.
 functions:
-  - Front end developer
-  - Lead front end developer
+  - title: Front-end developer
+    from: 2023
+    to: present
+  - title: Lead Front-end developer
+    from: 2022
+    to: 2023

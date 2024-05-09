@@ -8,14 +8,18 @@ console.log('experience', experience)
 
 <Layout title="Welcome to Astro.">
 	<main class="m-4 h-[297mm] w-[210mm] overflow-hidden bg-white p-8 shadow-lg dark:bg-slate-700">
-		{ experience && experience.map( ( item ) => (
-			<h2>{item.data.title}</h2>
-			<p>{item.data.description}</p>
-			<ul>
-				{ item.data?.functions.map( ( item ) => (
-					<li>{item}</li>
-				)) }
-			</ul>
-		) ) }
+		<div class="flex flex-col gap-4">
+			{ experience && experience.map( ( item ) => (
+				<div class="border p-4">
+					<h2>{item.data.title}</h2>
+					<p>{item.data.description}</p>
+					<ul>
+						{ item.data?.functions.map( ( item ) => (
+							<li>{item.title}: {item.from}-{item.to}</li>
+						)) }
+					</ul>
+				</div>
+			) ) }
+		</div>
 	</main>
 </Layout>

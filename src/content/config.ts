@@ -5,7 +5,13 @@ const experienceCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string().optional(),
-    functions: z.array(z.string()),
+    functions: z.array(
+      z.object({
+        title: z.string(),
+        from: z.union([z.string(), z.number()]),
+        to: z.union([z.string(), z.number()]),
+      })
+    ),
   }),
 });
 
