@@ -1,5 +1,7 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '@layouts/Layout.astro';
+import Card from '@components/Card.astro';
+import User from '@components/User.astro';
 import { getCollection } from 'astro:content';
 
 const experience = await getCollection('experience');
@@ -7,19 +9,23 @@ console.log('experience', experience)
 ---
 
 <Layout title="Welcome to Astro.">
-	<main class="m-4 h-[297mm] w-[210mm] overflow-hidden bg-white p-8 shadow-lg dark:bg-slate-700">
-		<div class="flex flex-col gap-4">
-			{ experience && experience.map( ( item ) => (
-				<div class="border p-4">
-					<h2>{item.data.title}</h2>
-					<p>{item.data.description}</p>
-					<ul>
-						{ item.data?.functions.map( ( item ) => (
-							<li>{item.title}: {item.from}-{item.to}</li>
-						)) }
-					</ul>
-				</div>
-			) ) }
+	<main class="container max-w-4xl mx-auto grid grid-cols-12 gap-12">
+		<User />
+		<div class="row-start-2 col-span-8 flex flex-col gap-6">
+			<h2 class="text-2xl">Last positions</h2>
+			<div class="flex flex-col gap-4">
+				{ experience && experience.map( ( item ) => (
+					<Card>
+						<h2>{item.data.title}</h2>
+						<p>{item.data.description}</p>
+						<ul>
+							{ item.data?.functions.map( ( item ) => (
+								<li>{item.title}: {item.from}-{item.to}</li>
+							)) }
+						</ul>
+					</Card>
+				) ) }
+			</div>
 		</div>
 	</main>
 </Layout>
