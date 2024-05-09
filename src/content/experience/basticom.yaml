@@ -1,5 +1,6 @@
 title: Basticom
 description: Development, optimalisatie en doorontwikkeling van Magento 2 webshops.
+order: 2
 functions:
   - title: Front-end developer
     from: 2023
