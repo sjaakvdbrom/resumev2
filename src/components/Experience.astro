@@ -1,16 +1,16 @@
 ---
 import { getCollection } from 'astro:content';
+import Section from '@components/Section.astro';
 import Position from '@components/Position.astro';
 
 const experience = await getCollection('experience');
 const sortedExperience = experience.sort( ( a, b ) => b.data.order - a.data.order );
 ---
 
-<div class="lg:row-start-2 col-span-full lg:col-span-8 flex flex-col gap-8">
-  <h2 class="text-2xl">Ervaring</h2>
+<Section class="lg:row-start-2 col-span-full lg:col-span-8" title="Ervaring">
   <div class="flex flex-col gap-4">
     { experience && sortedExperience.map( ( item ) => (
       <Position item={item} />
     ) ) }
   </div>
-</div>
+</Section>

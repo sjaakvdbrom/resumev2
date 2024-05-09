@@ -6,11 +6,11 @@ const experienceCollection = defineCollection({
     title: z.string(),
     description: z.string().optional(),
     order: z.number(),
+    from: z.union([z.string(), z.number()]),
+    to: z.union([z.string(), z.number()]),
     functions: z.array(
       z.object({
         title: z.string(),
-        from: z.union([z.string(), z.number()]),
-        to: z.union([z.string(), z.number()]),
       })
     ),
   }),
