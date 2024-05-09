@@ -1,12 +1,14 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import User from '@components/User.astro';
+import Intro from '@components/Intro.astro';
 import Experience from '@components/Experience.astro';
 ---
 
 <Layout title="Welcome to Astro.">
-	<main class="container max-w-4xl mx-auto grid grid-cols-12 gap-12">
+	<main class="container max-w-4xl mx-auto grid grid-cols-12 gap-10">
 		<User />
+		<Intro />
 		<Experience />
 	</main>
 </Layout>
