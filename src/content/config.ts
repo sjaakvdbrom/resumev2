@@ -16,6 +16,18 @@ const experienceCollection = defineCollection({
   }),
 });
 
+const aboutCollection = defineCollection({
+  type: "data",
+  schema: z.object({
+    name: z.string(),
+    availableForWork: z.boolean(),
+    tagline: z.string(),
+    location: z.string(),
+    description: z.string(),
+  }),
+});
+
 export const collections = {
   experience: experienceCollection,
+  about: aboutCollection,
 };
