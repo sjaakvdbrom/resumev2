@@ -1,0 +1,15 @@
+---
+import type { NavItem } from '@components/Navigation.astro';
+
+interface Props {
+  item: NavItem
+}
+
+const { item } = Astro.props;
+---
+
+<li>
+  <a href={item.slug} class="hover:underline underline-offset-4">
+    {item.label}
+  </a>
+</li>
