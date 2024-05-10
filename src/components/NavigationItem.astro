@@ -3,13 +3,14 @@ import type { NavItem } from '@components/Navigation.astro';
 
 interface Props {
   item: NavItem
+  active: boolean
 }
 
-const { item } = Astro.props;
+const { item, active } = Astro.props;
 ---
 
 <li>
-  <a href={item.slug} class="hover:underline underline-offset-4">
+  <a href={item.slug} class={`underline-offset-4 ${ active ? 'underline' : 'hover:underline'}`}>
     {item.label}
   </a>
 </li>

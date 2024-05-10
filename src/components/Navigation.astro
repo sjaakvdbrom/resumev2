@@ -13,23 +13,33 @@ const navItems: NavItem[] = [
   },
   {
     label: 'Over',
-    slug: '/over/'
+    slug: '/over'
   },
   {
     label: 'Blog',
-    slug: '/blog/'
+    slug: '/blog'
   },
   {
     label: 'Contact',
-    slug: '/contact/'
+    slug: '/contact'
   }
 ]
+
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname;
+console.log('currentPath: ' + currentPath )
 ---
 
 <nav>
   <ul class="flex items-center gap-8 text-xl">
     { navItems.map( ( item ) => (
-      <NavigationItem item={item} />
+      
+      <div>
+        <NavigationItem 
+          item={item}
+          active={item.slug === (currentPath === '/' ? '/' : currentPath.replace(/\/$/, ""))}
+        />
+      </div>
     ))}
   </ul>
 </nav>
