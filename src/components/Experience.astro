@@ -8,7 +8,7 @@ const sortedExperience = experience.sort( ( a, b ) => b.data.order - a.data.orde
 ---
 
 { experience && (
-  <Section class="lg:row-start-2 col-span-full" title="Ervaring">
+  <Section class="col-span-full" title="Ervaring">
     <div class="grid gap-y-section-mobile gap-x-grid-gutter lg:grid-cols-3">
       { sortedExperience.map( ( item ) => (
         <Position item={item} />

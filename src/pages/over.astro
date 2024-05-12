@@ -2,19 +2,34 @@
 import Layout from '@layouts/Layout.astro';
 import User from '@components/User.astro';
 import Intro from '@components/Intro.astro';
-import { Image } from "@unpic/astro";
+import { Image, Source } from "@unpic/astro";
 ---
 
 <Layout title="Over | Sjaak van den Brom">
 	<div class="col-span-full">
-		<Image
-			src="https://ik.imagekit.io/h44fxky6b/_DSC8702.jpg"
-			width={992}
-			height={340}
-			alt="Hero"
-			priority
-			class="rounded-3xl lg:rounded-4xl"
-		/>
+		<picture>
+			<Source
+				src="https://ik.imagekit.io/h44fxky6b/_DSC8702.jpg"
+				media="(min-width: 768px)"
+				width={992}
+				height={340}
+			/>
+			<Source
+				src="https://ik.imagekit.io/h44fxky6b/_DSC8702.jpg"
+				media="(max-width: 767px)"
+				width={718}
+				height={500}
+			/>
+			<Image
+				src="https://ik.imagekit.io/h44fxky6b/_DSC8702.jpg"
+				width={992}
+				height={340}
+				alt="Hero"
+				priority
+				unstyled
+				class="rounded-3xl lg:rounded-4xl w-full"
+			/>
+		</picture>
 	</div>
 	<User />
 	<Intro />

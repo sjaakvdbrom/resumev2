@@ -6,8 +6,6 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   integrations: [tailwind()],
   image: {
-    service: imageService({
-      placeholder: "blurhash",
-    }),
+    service: imageService(),
   },
 });
