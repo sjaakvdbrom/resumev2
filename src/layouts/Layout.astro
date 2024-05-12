@@ -25,12 +25,12 @@ const { title } = Astro.props;
     />
 		<ViewTransitions />
 	</head>
-	<body class="grid min-h-screen justify-center bg-white text-slate-900 dark:text-white dark:bg-black lg:py-20">
+	<body class="grid min-h-screen justify-center bg-white text-slate-900 dark:text-white dark:bg-black py-8 lg:py-20">
 		<div class="absolute z-10 h-full w-full bg-repeat pointer-events-none opacity-75" style={`background-image: url(${dots.src});`}></div>
 		<div class="absolute z-20 inset-0 bg-gradient-to-b from-white dark:from-black to-transparent"></div>
 		<div class="relative z-30 flex flex-col gap-y-section-mobile lg:gap-y-section-desktop">
 			<Header />
-			<main class="container px-4 max-w-5xl mx-auto grid grid-cols-12 gap-y-mobile gap-x-4 lg:gap-y-section-desktop">
+			<main class="container px-4 max-w-5xl mx-auto grid grid-cols-12 gap-y-section-mobile gap-x-grid-gutter lg:gap-y-section-desktop">
 				<slot />
 			</main>
 		</div>

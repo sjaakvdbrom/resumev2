@@ -15,6 +15,7 @@ export default {
       spacing: {
         "section-mobile": defaultTheme.spacing[6],
         "section-desktop": defaultTheme.spacing[14],
+        "grid-gutter": defaultTheme.spacing[4],
       },
     },
   },
