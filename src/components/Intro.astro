@@ -1,13 +1,14 @@
 ---
 import Card from '@components/Card.astro';
 import { getEntry } from 'astro:content';
+import { Icon } from 'astro-icon/components'
 
 const profile = await getEntry('about', 'profile');
 ---
 
 <Card class="col-span-full lg:col-span-6 flex flex-col gap-4 justify-between items-start">
   <i class="size-14 inline-flex items-center justify-center text-2xl bg-white dark:bg-black rounded-full">
-    <span class="-translate-x-1 -translate-y-1">👋</span>
+    <Icon name="waving-hand" />
   </i>
   { profile.data?.description && <p class="text-2xl text-balance">{ profile.data.description }</p> }
 </Card>
