@@ -1,9 +1,9 @@
 ---
 import Card from '@components/Card.astro';
-import { Image } from 'astro:assets';
 import avatar from '@assets/avatar.jpg';
 import Availability from '@components/Availability.astro';
 import { getEntry } from 'astro:content';
+import { Image } from "@unpic/astro";
 
 const profile = await getEntry('about', 'profile');
 ---
