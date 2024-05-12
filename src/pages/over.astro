@@ -2,9 +2,19 @@
 import Layout from '@layouts/Layout.astro';
 import User from '@components/User.astro';
 import Intro from '@components/Intro.astro';
+import { Image } from "@unpic/astro";
 ---
 
 <Layout title="Over | Sjaak van den Brom">
-	<User />
+	<div class="col-span-full">
+		<Image
+			src="https://ik.imagekit.io/h44fxky6b/_DSC8702.jpg"
+			width={992}
+			height={340}
+			alt="Hero"
+			class="h-full rounded-4xl"
+		/>
+	</div>
+	<User transition:name="user" />
 	<Intro />
 </Layout>
