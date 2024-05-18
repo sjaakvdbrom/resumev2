@@ -6,8 +6,11 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
+  build: {
+    inlineStylesheets: "always",
+  },
   integrations: [tailwind(), icon()],
   image: {
-    service: imageService()
-  }
+    service: imageService(),
+  },
 });
