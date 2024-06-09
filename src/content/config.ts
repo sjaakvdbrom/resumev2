@@ -7,7 +7,7 @@ const experienceCollection = defineCollection({
     description: z.string().optional(),
     order: z.number(),
     from: z.date(),
-    to: z.date(),
+    to: z.date().optional(),
     functions: z.array(
       z.object({
         title: z.string(),

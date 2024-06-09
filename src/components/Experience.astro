@@ -9,6 +9,10 @@ const sortedExperience = experience.sort( ( a, b ) => b.data.order - a.data.orde
 let totalExperience = 0;
 
 for (const item of experience) {
+  if (!item.data.to) {
+    totalExperience += Date.now() - item.data.from.getTime()
+    continue;
+  }
   totalExperience += item.data.to.getTime() - item.data.from.getTime()
 }
 
