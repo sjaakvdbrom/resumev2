@@ -6,15 +6,11 @@ import Position from "@components/Position.astro";
 const experience = await getCollection("experience");
 const sortedExperience = experience.sort((a, b) => b.data.order - a.data.order);
 
-let totalExperience = 0;
+const totalExperience = experience.reduce((total, item) => {
+  if (!item.data.to) return total + Date.now() - item.data.from.getTime();
 
-for (const item of experience) {
-  if (!item.data.to) {
-    totalExperience += Date.now() - item.data.from.getTime();
-    continue;
-  }
-  totalExperience += item.data.to.getTime() - item.data.from.getTime();
-}
+  return total + item.data.to.getTime() - item.data.from.getTime();
+}, 0);
 
 // Total experience in years
 const totalYears = totalExperience / 1000 / 60 / 60 / 24 / 365;
