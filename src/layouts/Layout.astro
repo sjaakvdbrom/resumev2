@@ -1,6 +1,7 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
 import Header from '@components/Header.astro';
+import Footer from '@components/Footer.astro';
 
 interface Props {
 	title: string;
@@ -31,6 +32,7 @@ const { title } = Astro.props;
 			<main class="container px-4 w-full max-w-5xl mx-auto grid grid-cols-12 gap-y-section-mobile gap-x-grid-gutter lg:gap-y-section-desktop">
 				<slot />
 			</main>
+			<Footer />
 		</div>
 	</body>
 </html>
