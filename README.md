@@ -3,3 +3,5 @@
 # Resume v2
 
 Resume website made using Astro leveraging it's Content Collections.
+
+Demo: https://sjaakvdbrom.netlify.app/
