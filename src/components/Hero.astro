@@ -1,0 +1,36 @@
+---
+import { Image, Source } from "@unpic/astro";
+
+interface Props {
+  image: string;
+}
+
+const { image } = Astro.props;
+---
+
+<div class="col-span-full">
+  <picture>
+    <Source
+      src={image}
+      media="(min-width: 768px)"
+      width={992}
+      height={340}
+    />
+    <Source
+      src={image}
+      media="(max-width: 767px)"
+      width={718}
+      height={500}
+    />
+    <Image
+      src={image}
+      width={718}
+      height={500}
+      alt="Hero"
+      priority
+      unstyled
+      layout="fixed"
+      class="rounded-3xl lg:rounded-4xl w-full"
+    />
+  </picture>
+</div>
