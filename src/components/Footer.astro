@@ -1,5 +1,14 @@
+---
+import { Icon } from 'astro-icon/components'
+---
+
 <footer class="container px-4 max-w-5xl mx-auto">
-  <div class="flex items-center justify-center rounded-3xl lg:rounded-4xl bg-gray-100 dark:bg-neutral-900 px-8 py-6 lg:px-10">
-    <p>Built using <a href="https://astro.build/" target="_blank" class="underline underline-offset-4">Astro</a> 🔥 View source code <a href="https://github.com/sjaakvdbrom/resumev2" target="_blank" class="underline underline-offset-4">here</a></p>
-  </div>
+  <ul class="flex flex-col items-center justify-center gap-y-4 gap-x-2 rounded-3xl lg:rounded-4xl bg-gray-100 dark:bg-neutral-900 px-8 py-6 lg:px-10 sm:flex-row">
+    <li>
+      Built using <a href="https://astro.build/" target="_blank" title="Ga naar astro.build" class="inline-flex items-center gap-1 underline underline-offset-4"><Icon name="fire" /> Astro</a>.
+    </li>
+    <li>
+      View source code <a href="https://github.com/sjaakvdbrom/resumev2" target="_blank" title="Ga naar github.com" class="underline underline-offset-4">here</a>.
+    </li>
+  </ul>
 </footer>
