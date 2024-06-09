@@ -27,7 +27,8 @@ const experienceInYearsAndMonths = `${roundedYears} jr ${roundedMonths} mnd`;
   experience && (
     <Section
       class="col-span-full"
-      title={`Ervaring (${experienceInYearsAndMonths})`}
+      title="Ervaring"
+      subTitle={experienceInYearsAndMonths}
     >
       <div class="grid gap-x-grid-gutter gap-y-section-mobile lg:grid-cols-3">
         {sortedExperience.map((item) => (
