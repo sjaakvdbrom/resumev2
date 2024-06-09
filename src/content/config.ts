@@ -6,8 +6,8 @@ const experienceCollection = defineCollection({
     title: z.string(),
     description: z.string().optional(),
     order: z.number(),
-    from: z.union([z.string(), z.number()]),
-    to: z.union([z.string(), z.number()]),
+    from: z.date(),
+    to: z.date(),
     functions: z.array(
       z.object({
         title: z.string(),
