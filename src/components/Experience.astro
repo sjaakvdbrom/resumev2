@@ -5,10 +5,30 @@ import Position from '@components/Position.astro';
 
 const experience = await getCollection('experience');
 const sortedExperience = experience.sort( ( a, b ) => b.data.order - a.data.order );
+
+let totalExperience = 0;
+
+for (const item of experience) {
+  if (!item.data.to) {
+    totalExperience += Date.now() - item.data.from.getTime()
+    continue;
+  }
+  totalExperience += item.data.to.getTime() - item.data.from.getTime()
+}
+
+// Total experience in years
+const totalYears = totalExperience / 1000 / 60 / 60 / 24 / 365
+const roundedYears = Math.floor(totalYears)
+
+// Get remaining months from totalYears
+const remainingMonths = (totalYears - roundedYears) * 12
+const roundedMonths = Math.floor(remainingMonths)
+
+const experienceInYearsAndMonths = `${roundedYears} jr ${roundedMonths} mnd`
 ---
 
 { experience && (
-  <Section class="col-span-full" title="Ervaring">
+  <Section class="col-span-full" title={`Ervaring (${experienceInYearsAndMonths})`}>
     <div class="grid gap-y-section-mobile gap-x-grid-gutter lg:grid-cols-3">
       { sortedExperience.map( ( item ) => (
         <Position item={item} />

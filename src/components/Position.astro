@@ -17,7 +17,7 @@ const functions = experience?.functions?.map( ( job ) => job.title );
 
 <Card class="flex flex-col items-start gap-4">
   <Badge>
-    {`${experience.from} - ${experience.to}`}
+    {`${experience.from.getFullYear()} - ${experience.to ? experience.to.getFullYear() : 'heden'}`}
   </Badge>
   <h2 class="text-2xl">{experience.title}</h2>
   <p>{experience.description}</p>
