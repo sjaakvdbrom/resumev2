@@ -7,7 +7,7 @@ import { Icon } from 'astro-icon/components'
 const posts = await getCollection('blog');
 ---
 
-<Layout title="Blog | Sjaak van den Brom">
+<Layout title="Blog">
 	{ posts.map( ( item ) => (
     <Card item={item} />
   ) ) }
