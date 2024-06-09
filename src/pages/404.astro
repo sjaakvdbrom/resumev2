@@ -1,18 +1,14 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Card from "@components/Card.astro";
-import { Icon } from "astro-icon/components";
+import IconCircle from "@components/IconCircle.astro";
 ---
 
 <Layout title="404">
   <Card
     class="col-span-full flex flex-col items-start justify-between gap-4 lg:gap-10"
   >
-    <i
-      class="inline-flex size-14 items-center justify-center rounded-full bg-white text-2xl dark:bg-black"
-    >
-      <Icon name="man-facepalming" />
-    </i>
+    <IconCircle name="man-facepalming" />
     <div class="flex flex-col gap-2">
       <h1 class="text-3xl">404 Pagina niet gevonden.</h1>
       <p class="text-lg">Dat is jammer. Deze pagina bestaat niet.</p>

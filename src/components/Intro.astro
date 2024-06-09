@@ -1,7 +1,7 @@
 ---
 import Card from "@components/Card.astro";
 import { getEntry } from "astro:content";
-import { Icon } from "astro-icon/components";
+import IconCircle from "@components/IconCircle.astro";
 
 const profile = await getEntry("about", "profile");
 ---
@@ -9,11 +9,7 @@ const profile = await getEntry("about", "profile");
 <Card
   class="col-span-full flex flex-col items-start justify-between gap-4 lg:col-span-6"
 >
-  <i
-    class="inline-flex size-14 items-center justify-center rounded-full bg-white text-2xl dark:bg-black"
-  >
-    <Icon name="waving-hand" />
-  </i>
+  <IconCircle name="waving-hand" />
   {
     profile.data?.description && (
       <p class="text-balance text-2xl">{profile.data.description}</p>
