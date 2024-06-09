@@ -1,5 +1,5 @@
 ---
-import NavigationItem from '@components/NavigationItem.astro';
+import NavigationItem from "@components/NavigationItem.astro";
 
 export interface NavItem {
   label: string;
@@ -8,18 +8,18 @@ export interface NavItem {
 
 const navItems: NavItem[] = [
   {
-    label: 'Home',
-    slug: '/'
+    label: "Home",
+    slug: "/",
   },
   {
-    label: 'Over',
-    slug: '/over'
+    label: "Over",
+    slug: "/over",
   },
   {
-    label: 'Blog',
-    slug: '/blog'
-  }
-]
+    label: "Blog",
+    slug: "/blog",
+  },
+];
 
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname;
@@ -27,11 +27,16 @@ const currentPath = pathname;
 
 <nav>
   <ul class="flex items-center gap-8 text-xl">
-    { navItems.map( ( item ) => (
-      <NavigationItem 
-        item={item}
-        active={item.slug === (currentPath === '/' ? '/' : currentPath.replace(/\/$/, ""))}
-      />
-    ))}
+    {
+      navItems.map((item) => (
+        <NavigationItem
+          item={item}
+          active={
+            item.slug ===
+            (currentPath === "/" ? "/" : currentPath.replace(/\/$/, ""))
+          }
+        />
+      ))
+    }
   </ul>
 </nav>

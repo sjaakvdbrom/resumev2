@@ -11,7 +11,7 @@ const experienceCollection = defineCollection({
     functions: z.array(
       z.object({
         title: z.string(),
-      })
+      }),
     ),
   }),
 });

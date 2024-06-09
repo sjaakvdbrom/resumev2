@@ -6,12 +6,14 @@ interface Props {
 const { list } = Astro.props;
 ---
 
-<ul class="flex flex-col gap-2 list-disc list-inside marker:text-neutral-400">
-  { list.map( ( li ) => (
-    <li class="list-item">
-      <div class="inline-flex items-center gap-4">
-        <span class="dark:text-neutral-400">{li}</span>
-      </div>
-    </li>
-  )) }
+<ul class="flex list-inside list-disc flex-col gap-2 marker:text-neutral-400">
+  {
+    list.map((li) => (
+      <li class="list-item">
+        <div class="inline-flex items-center gap-4">
+          <span class="dark:text-neutral-400">{li}</span>
+        </div>
+      </li>
+    ))
+  }
 </ul>

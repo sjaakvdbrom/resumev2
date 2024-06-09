@@ -1,14 +1,22 @@
 ---
-import Card from '@components/Card.astro';
-import { getEntry } from 'astro:content';
-import { Icon } from 'astro-icon/components'
+import Card from "@components/Card.astro";
+import { getEntry } from "astro:content";
+import { Icon } from "astro-icon/components";
 
-const profile = await getEntry('about', 'profile');
+const profile = await getEntry("about", "profile");
 ---
 
-<Card class="col-span-full lg:col-span-6 flex flex-col gap-4 justify-between items-start">
-  <i class="size-14 inline-flex items-center justify-center text-2xl bg-white dark:bg-black rounded-full">
+<Card
+  class="col-span-full flex flex-col items-start justify-between gap-4 lg:col-span-6"
+>
+  <i
+    class="inline-flex size-14 items-center justify-center rounded-full bg-white text-2xl dark:bg-black"
+  >
     <Icon name="waving-hand" />
   </i>
-  { profile.data?.description && <p class="text-2xl text-balance">{ profile.data.description }</p> }
+  {
+    profile.data?.description && (
+      <p class="text-balance text-2xl">{profile.data.description}</p>
+    )
+  }
 </Card>

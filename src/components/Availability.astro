@@ -1,15 +1,30 @@
 ---
-import { getEntry } from 'astro:content';
+import { getEntry } from "astro:content";
 
-const profile = await getEntry('about', 'profile');
+const profile = await getEntry("about", "profile");
 ---
 
-<div class="inline-flex items-center gap-3 py-2 px-4 rounded-3xl bg-white dark:bg-black">
-  <div class={`relative rounded-full size-3 ${profile.data?.availableForWork ? 'bg-success' : 'bg-warning'}`}>
-    <div class:list={[
-      { 'bg-success': profile.data?.availableForWork },
-      'absolute inset-0 animate-ping rounded-full duration-700'
-    ]}></div>
+<div
+  class="inline-flex items-center gap-3 rounded-3xl bg-white px-4 py-2 dark:bg-black"
+>
+  <div
+    class={`relative rounded-full size-3 ${profile.data?.availableForWork ? "bg-success" : "bg-warning"}`}
+  >
+    <div
+      class:list={[
+        { "bg-success": profile.data?.availableForWork },
+        "absolute inset-0 animate-ping rounded-full duration-700",
+      ]}
+    >
+    </div>
   </div>
-  <span>{ profile.data?.availableForWork ? <span>Available for work</span> : <span>Not available for work</span> }</span>
+  <span
+    >{
+      profile.data?.availableForWork ? (
+        <span>Available for work</span>
+      ) : (
+        <span>Not available for work</span>
+      )
+    }</span
+  >
 </div>

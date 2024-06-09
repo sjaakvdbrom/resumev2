@@ -10,18 +10,8 @@ const { image } = Astro.props;
 
 <div class="col-span-full">
   <picture>
-    <Source
-      src={image}
-      media="(min-width: 768px)"
-      width={992}
-      height={340}
-    />
-    <Source
-      src={image}
-      media="(max-width: 767px)"
-      width={718}
-      height={500}
-    />
+    <Source src={image} media="(min-width: 768px)" width={992} height={340} />
+    <Source src={image} media="(max-width: 767px)" width={718} height={500} />
     <Image
       src={image}
       width={718}
@@ -30,7 +20,7 @@ const { image } = Astro.props;
       priority
       unstyled
       layout="fixed"
-      class="rounded-3xl lg:rounded-4xl w-full"
+      class="w-full rounded-3xl lg:rounded-4xl"
     />
   </picture>
 </div>
