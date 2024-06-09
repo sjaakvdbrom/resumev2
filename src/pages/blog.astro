@@ -1,7 +1,25 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '@layouts/Layout.astro';
+import Card from '@components/Card.astro';
+import { Icon } from 'astro-icon/components'
+
+const posts = await getCollection('blog');
 ---
 
 <Layout title="Blog | Sjaak van den Brom">
-	
+	{ posts.map( ( item ) => (
+    <Card item={item} />
+  ) ) }
+  { posts.length < 1 && (
+    <Card class="col-span-full flex flex-col gap-4 justify-between items-start lg:gap-10">
+      <i class="size-14 inline-flex items-center justify-center text-2xl bg-white dark:bg-black rounded-full">
+        <Icon name="man-facepalming" />
+      </i>
+      <div class="flex flex-col gap-2">
+        <h1 class="text-3xl">Geen posts gevonden</h1>
+        <p class="text-lg">Helaas, ik heb nog niks moois geschreven.</p>
+      </div>
+    </Card>
+  ) }
 </Layout>
