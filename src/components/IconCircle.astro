@@ -3,13 +3,14 @@ import { Icon } from "astro-icon/components";
 
 interface Props {
   name: string;
+  class?: string;
 }
 
-const { name } = Astro.props;
+const { name, class: className } = Astro.props;
 ---
 
 <i
   class="inline-flex size-14 items-center justify-center rounded-full bg-white text-2xl dark:bg-black"
 >
-  <Icon name={name} />
+  <Icon name={name} class={className} />
 </i>
