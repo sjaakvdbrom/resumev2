@@ -19,6 +19,11 @@ const { icon } = Astro.props;
           <IconCircle name={icon} class="size-11 translate-y-2" />
         )
       }
+      {
+        icon && icon === "man-construction" && (
+          <IconCircle name={icon} class="size-11 translate-y-2" />
+        )
+      }
       {!icon && <IconCircle name="man-smiling" class="size-11 translate-y-2" />}
     </a>
     <Navigation />
