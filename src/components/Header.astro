@@ -16,7 +16,7 @@ const { icon } = Astro.props;
     <a href="/" title="Ga naar de homepagina" class="hidden md:block">
       {
         icon && icon === "man-facepalming" && (
-          <IconCircle name="man-facepalming" class="size-11 translate-y-2" />
+          <IconCircle name={icon} class="size-11 translate-y-2" />
         )
       }
       {!icon && <IconCircle name="man-smiling" class="size-11 translate-y-2" />}
