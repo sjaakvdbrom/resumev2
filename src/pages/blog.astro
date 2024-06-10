@@ -7,12 +7,12 @@ import IconCircle from "@components/IconCircle.astro";
 const posts = await getCollection("blog");
 ---
 
-<Layout title="Blog">
+<Layout title="Blog" icon={posts.length < 1 ? "man-facepalming" : undefined}>
   {posts.map((item) => <Card item={item} />)}
   {
     posts.length < 1 && (
       <Card class="col-span-full flex flex-col items-start justify-between gap-4 lg:gap-10">
-        <IconCircle name="man-facepalming" />
+        <IconCircle name="writing-hand" class="size-7 -translate-y-1" />
         <div class="flex flex-col gap-2">
           <h1 class="text-3xl">Geen posts gevonden</h1>
           <p class="text-lg">Helaas, ik heb nog niks moois geschreven.</p>
