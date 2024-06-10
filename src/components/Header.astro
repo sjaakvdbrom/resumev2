@@ -14,16 +14,7 @@ const { icon } = Astro.props;
     class="flex items-center justify-center rounded-3xl bg-gray-100 px-8 py-6 md:justify-between lg:rounded-4xl lg:px-10 lg:py-8 dark:bg-neutral-900"
   >
     <a href="/" title="Ga naar de homepagina" class="hidden md:block">
-      {
-        icon && icon === "man-facepalming" && (
-          <IconCircle name={icon} class="size-11 translate-y-2" />
-        )
-      }
-      {
-        icon && icon === "man-construction" && (
-          <IconCircle name={icon} class="size-11 translate-y-2" />
-        )
-      }
+      {icon && <IconCircle name={icon} class="size-11 translate-y-2" />}
       {!icon && <IconCircle name="man-smiling" class="size-11 translate-y-2" />}
     </a>
     <Navigation />
