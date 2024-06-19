@@ -11,7 +11,7 @@ if (!import.meta.env.TIME_SPENT_CODING_API_KEY) {
   throw new Error("Missing env TIME_SPENT_CODING_API_KEY");
 }
 
-let response = await fetch(
+const response = await fetch(
   `${import.meta.env.TIME_SPENT_CODING_URL}/stats/last_30_days`,
   {
     method: "GET",
@@ -20,7 +20,7 @@ let response = await fetch(
     },
   },
 );
-let stats: CodingActivityStats = await response.json();
+const stats: CodingActivityStats = await response.json();
 
 const humanReadableTotal =
   stats.data.human_readable_total_including_other_language;

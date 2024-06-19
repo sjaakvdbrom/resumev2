@@ -7,8 +7,8 @@ if (!import.meta.env.CONTRIBUTIONS_URL) {
   throw new Error("Missing env CONTRIBUTIONS_URL");
 }
 
-let response = await fetch(import.meta.env.CONTRIBUTIONS_URL);
-let stats: Response = await response.json();
+const response = await fetch(import.meta.env.CONTRIBUTIONS_URL);
+const stats: Response = await response.json();
 
 // Get total contributions from the last 30 days
 const totalContributions = stats.contributions.reduce((total, item) => {
