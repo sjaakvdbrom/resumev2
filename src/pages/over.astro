@@ -4,6 +4,7 @@ import User from "@components/User.astro";
 import Intro from "@components/Intro.astro";
 import Hero from "@components/Hero.astro";
 import TimeSpentCoding from "@components/TimeSpentCoding.astro";
+import Contributions from "@components/Contributions.astro";
 import Section from "@components/Section.astro";
 ---
 
@@ -14,6 +15,7 @@ import Section from "@components/Section.astro";
   <Section class="col-span-full" title="Stats" subTitle="Laatste 30 dagen">
     <div class="grid gap-x-grid-gutter gap-y-section-mobile lg:grid-cols-3">
       <TimeSpentCoding />
+      <Contributions />
     </div>
   </Section>
 </Layout>

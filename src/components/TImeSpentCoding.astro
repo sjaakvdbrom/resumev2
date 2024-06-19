@@ -2,6 +2,14 @@
 import Card from "@components/Card.astro";
 import IconCircle from "@components/IconCircle.astro";
 
+if (!import.meta.env.TIME_SPENT_CODING_URL) {
+  throw new Error("Missing env TIME_SPENT_CODING_URL");
+}
+
+if (!import.meta.env.TIME_SPENT_CODING_API_KEY) {
+  throw new Error("Missing env TIME_SPENT_CODING_API_KEY");
+}
+
 let response = await fetch(
   `${import.meta.env.TIME_SPENT_CODING_URL}/stats/last_30_days`,
   {

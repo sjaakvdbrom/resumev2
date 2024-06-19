@@ -1,0 +1,65 @@
+---
+import Card from "@components/Card.astro";
+import IconCircle from "@components/IconCircle.astro";
+
+if (!import.meta.env.CONTRIBUTIONS_URL) {
+  throw new Error("Missing env CONTRIBUTIONS_URL");
+}
+
+interface Contribution {
+  date: string;
+  count: number;
+  level: 0 | 1 | 2 | 3 | 4;
+}
+
+interface Response {
+  total: {
+    [year: number]: number;
+    [year: string]: number; // 'lastYear'
+  };
+  contributions: Array<Contribution>;
+}
+
+interface NestedResponse {
+  total: {
+    [year: number]: number;
+    [year: string]: number; // 'lastYear;
+  };
+  contributions: {
+    [year: number]: {
+      [month: number]: {
+        [day: number]: Contribution;
+      };
+    };
+  };
+}
+
+let response = await fetch(import.meta.env.CONTRIBUTIONS_URL);
+let stats: Response = await response.json();
+
+// Get total contributions from the last 30 days
+const totalContributions = stats.contributions.reduce((total, item) => {
+  var days = 30;
+  var delta = days * 24 * 60 * 60 * 1000;
+  var result =
+    Math.abs(new Date().valueOf() - new Date(item.date).valueOf()) < delta;
+
+  if (result) {
+    return total + item.count;
+  }
+
+  return total;
+}, 0);
+---
+
+<Card class="flex flex-col items-start justify-between gap-4 lg:gap-10">
+  <IconCircle name="bar-chart" />
+  <div class="flex flex-col gap-2">
+    {
+      totalContributions && (
+        <p class="text-lg dark:text-neutral-400">{`${totalContributions} contributions`}</p>
+      )
+    }
+    <h2 class="text-2xl">Contributions op github</h2>
+  </div>
+</Card>
