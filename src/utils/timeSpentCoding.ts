@@ -18,6 +18,11 @@ export const getTimeSpentCoding = async () => {
       },
     },
   );
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch time spent coding");
+  }
+
   const stats: CodingActivityStats = await response.json();
 
   const humanReadableTotal =

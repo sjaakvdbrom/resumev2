@@ -6,6 +6,11 @@ export const getContributions = async () => {
   }
 
   const response = await fetch(import.meta.env.CONTRIBUTIONS_URL);
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch contributions");
+  }
+
   const stats: Response = await response.json();
 
   // Get total contributions from the last 30 days
