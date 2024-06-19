@@ -1,37 +1,17 @@
 ---
 import Card from "@components/Card.astro";
 import IconCircle from "@components/IconCircle.astro";
-import type { CodingActivityStats } from "@/types/timeSpentCoding";
+import { getTimeSpentCoding } from "@/utils/timeSpentCoding";
 
-if (!import.meta.env.TIME_SPENT_CODING_URL) {
-  throw new Error("Missing env TIME_SPENT_CODING_URL");
-}
-
-if (!import.meta.env.TIME_SPENT_CODING_API_KEY) {
-  throw new Error("Missing env TIME_SPENT_CODING_API_KEY");
-}
-
-const response = await fetch(
-  `${import.meta.env.TIME_SPENT_CODING_URL}/stats/last_30_days`,
-  {
-    method: "GET",
-    headers: {
-      Authorization: `Basic ${import.meta.env.TIME_SPENT_CODING_API_KEY}`,
-    },
-  },
-);
-const stats: CodingActivityStats = await response.json();
-
-const humanReadableTotal =
-  stats.data.human_readable_total_including_other_language;
+const timeSpentCoding = await getTimeSpentCoding();
 ---
 
 <Card class="flex flex-col items-start justify-between gap-4 lg:gap-10">
   <IconCircle name="clock" />
   <div class="flex flex-col gap-2">
     {
-      humanReadableTotal && (
-        <p class="text-lg dark:text-neutral-400">{humanReadableTotal}</p>
+      timeSpentCoding && (
+        <p class="text-lg dark:text-neutral-400">{timeSpentCoding}</p>
       )
     }
     <h2 class="text-2xl">Tijd gespendeerd aan programmeren</h2>
