@@ -1,6 +1,7 @@
 ---
 import Card from "@components/Card.astro";
 import IconCircle from "@components/IconCircle.astro";
+import type { CodingActivityStats } from "@/types/timeSpentCoding";
 
 if (!import.meta.env.TIME_SPENT_CODING_URL) {
   throw new Error("Missing env TIME_SPENT_CODING_URL");
@@ -19,7 +20,7 @@ let response = await fetch(
     },
   },
 );
-let stats = await response.json();
+let stats: CodingActivityStats = await response.json();
 
 const humanReadableTotal =
   stats.data.human_readable_total_including_other_language;

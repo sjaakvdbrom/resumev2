@@ -1,37 +1,10 @@
 ---
 import Card from "@components/Card.astro";
 import IconCircle from "@components/IconCircle.astro";
+import type { Response } from "@/types/contributions";
 
 if (!import.meta.env.CONTRIBUTIONS_URL) {
   throw new Error("Missing env CONTRIBUTIONS_URL");
-}
-
-interface Contribution {
-  date: string;
-  count: number;
-  level: 0 | 1 | 2 | 3 | 4;
-}
-
-interface Response {
-  total: {
-    [year: number]: number;
-    [year: string]: number; // 'lastYear'
-  };
-  contributions: Array<Contribution>;
-}
-
-interface NestedResponse {
-  total: {
-    [year: number]: number;
-    [year: string]: number; // 'lastYear;
-  };
-  contributions: {
-    [year: number]: {
-      [month: number]: {
-        [day: number]: Contribution;
-      };
-    };
-  };
 }
 
 let response = await fetch(import.meta.env.CONTRIBUTIONS_URL);
