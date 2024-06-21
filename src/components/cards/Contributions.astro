@@ -24,7 +24,6 @@ const remainingDays = 6 - lastDay;
           ))}
           {contributions.reverse().map((item, index) => (
             <div
-              data-date={item.date}
               class="size-[10px] rounded-[2px]"
               class:list={[
                 { "bg-contributions-0": item.level === 0 },
