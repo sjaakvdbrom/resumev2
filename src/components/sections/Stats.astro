@@ -1,0 +1,12 @@
+---
+import TimeSpentCoding from "@/components/cards/TimeSpentCoding.astro";
+import Contributions from "@/components/cards/Contributions.astro";
+import Section from "@components/Section.astro";
+---
+
+<Section class="col-span-full" title="Statistieken" subTitle="Laatste 30 dagen">
+  <div class="grid gap-x-grid-gutter gap-y-section-mobile lg:grid-cols-3">
+    <TimeSpentCoding />
+    <Contributions />
+  </div>
+</Section>

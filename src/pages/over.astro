@@ -3,23 +3,12 @@ import Layout from "@layouts/Layout.astro";
 import User from "@/components/cards/User.astro";
 import Intro from "@/components/cards/Intro.astro";
 import Hero from "@/components/cards/Hero.astro";
-import TimeSpentCoding from "@/components/cards/TimeSpentCoding.astro";
-import Contributions from "@/components/cards/Contributions.astro";
-import Section from "@components/Section.astro";
+import Stats from "@/components/sections/Stats.astro";
 ---
 
 <Layout title="Over" icon="man-artist">
   <Hero image="https://ik.imagekit.io/h44fxky6b/_DSC8702.jpg" />
   <User />
   <Intro />
-  <Section
-    class="col-span-full"
-    title="Statistieken"
-    subTitle="Laatste 30 dagen"
-  >
-    <div class="grid gap-x-grid-gutter gap-y-section-mobile lg:grid-cols-3">
-      <TimeSpentCoding />
-      <Contributions />
-    </div>
-  </Section>
+  <Stats />
 </Layout>
