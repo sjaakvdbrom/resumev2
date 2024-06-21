@@ -3,7 +3,7 @@ const { class: className } = Astro.props;
 ---
 
 <div
-  class={`rounded-3xl lg:rounded-4xl bg-gray-100 dark:bg-neutral-900 p-8 lg:p-10 ${className}`}
+  class={`rounded-3xl lg:rounded-4xl bg-gray-100 dark:bg-neutral-900 p-card-mobile lg:p-card-desktop ${className}`}
 >
   <slot />
 </div>

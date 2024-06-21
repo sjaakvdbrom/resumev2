@@ -23,6 +23,8 @@ export default {
         "section-mobile": defaultTheme.spacing[6],
         "section-desktop": defaultTheme.spacing[14],
         "grid-gutter": defaultTheme.spacing[4],
+        "card-mobile": defaultTheme.spacing[8],
+        "card-desktop": defaultTheme.spacing[10],
       },
     },
   },
