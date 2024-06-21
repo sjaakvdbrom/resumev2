@@ -17,7 +17,7 @@ const remainingDays = 6 - lastDay;
 >
   {
     contributions && (
-      <div class="relative flex w-full lg:justify-end">
+      <div class="relative flex w-full justify-start lg:justify-end">
         <div class="grid -translate-x-14 -scale-100 grid-flow-col grid-rows-7 gap-1 lg:translate-x-10">
           {[...Array(remainingDays)].map(() => (
             <div class="bg-contributions-0 size-[10px] rounded-[2px]" />
@@ -32,7 +32,6 @@ const remainingDays = 6 - lastDay;
                 { "bg-contributions-2": item.level === 2 },
                 { "bg-contributions-3": item.level === 3 },
                 { "bg-contributions-4": item.level === 4 },
-                { "hidden lg:block": index > 100 },
               ]}
             />
           ))}
