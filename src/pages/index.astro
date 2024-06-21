@@ -3,22 +3,6 @@ import Layout from "@layouts/Layout.astro";
 import User from "@/components/cards/User.astro";
 import Intro from "@/components/cards/Intro.astro";
 import Experience from "@components/Experience.astro";
-
-import { RestliClient } from "linkedin-api-client";
-
-const restliClient = new RestliClient();
-
-restliClient
-  .get({
-    resourcePath: "/me",
-    accessToken:
-      "AQXM_n6WxWYSA7EmrMElPWqMrmdTQvDQeK3B_6fk3Dr3-gQnsQTJTwwn4PGLPma4UXLryjRlJObeyFgRJaLGujdA-WRMTrXKiOVmQ6PqRTGkcI0zecc6fZ-59vqUWDbkOE9mxUP1aJy0GwxH8SCXSpNi0OZu0RwjsUMiAUxiI1rcIEv1zuosraAJGa29dnQmXiBPENeZvE1MC9B8Xgu7UyW-Wn-Kd_JixKygTxGsgAVP24VIQjnCRLHozr4Z2Jw-xoM50nbDuxsVFvEqHSbegyUEnTCIrfOtIKP9eBYwqKZqtpWUqwuxvn2WyaeHQptHmnlCfHO6xa64IhhQCT6XeeqvGzEj4Q",
-  })
-  .then((response) => {
-    return response.data;
-  });
-
-console.log(restliClient);
 ---
 
 <Layout title="Home">
