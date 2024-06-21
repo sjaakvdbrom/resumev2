@@ -1,19 +1,45 @@
 ---
 import Card from "@components/Card.astro";
-import IconCircle from "@components/IconCircle.astro";
 import {
   getContributionsDays,
   getContributionsCount,
 } from "@/utils/contributions";
 
-const contributions = await getContributionsDays();
+const contributions = await getContributionsDays(160);
 const contributionsAmount = await getContributionsCount();
 
-console.log(contributions);
+const lastDay = new Date(contributions[contributions.length - 1].date).getDay();
+const remainingDays = 6 - lastDay;
 ---
 
-<Card class="flex flex-col items-start justify-between gap-4 lg:gap-10">
-  <IconCircle name="bar-chart" />
+<Card
+  class="flex flex-col items-start justify-between gap-4 overflow-hidden lg:gap-10"
+>
+  {
+    contributions && (
+      <div class="relative flex w-full lg:justify-end">
+        <div class="grid -translate-x-14 -scale-100 grid-flow-col grid-rows-7 gap-1 lg:translate-x-10">
+          {[...Array(remainingDays)].map(() => (
+            <div class="bg-contributions-0 size-[10px] rounded-[2px]" />
+          ))}
+          {contributions.reverse().map((item, index) => (
+            <div
+              data-date={item.date}
+              class="size-[10px] rounded-[2px]"
+              class:list={[
+                { "bg-contributions-0": item.level === 0 },
+                { "bg-contributions-1": item.level === 1 },
+                { "bg-contributions-2": item.level === 2 },
+                { "bg-contributions-3": item.level === 3 },
+                { "bg-contributions-4": item.level === 4 },
+                { "hidden lg:block": index > 100 },
+              ]}
+            />
+          ))}
+        </div>
+      </div>
+    )
+  }
   <div class="flex flex-col gap-2">
     {
       contributionsAmount && (
