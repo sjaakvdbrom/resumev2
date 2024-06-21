@@ -27,17 +27,23 @@ export const getContributionsDays = async (amount: number = 30) => {
 
   const levels: Contribution[] = [];
 
-  stats.contributions.map((item) => {
-    const days = amount;
-    const delta = days * 24 * 60 * 60 * 1000;
-    const result =
-      Math.abs(new Date().valueOf() - new Date(item.date).valueOf()) < delta;
+  const now = new Date();
+  const startDate = new Date(
+    now.getFullYear(),
+    now.getMonth(),
+    now.getDate() - amount,
+  );
+  const endDate = new Date(
+    now.getFullYear(),
+    now.getMonth(),
+    now.getDate() + 1,
+  );
 
-    if (result) {
+  stats.contributions.map((item) => {
+    const itemDate = new Date(item.date);
+    if (itemDate >= startDate && itemDate < endDate) {
       levels.push(item);
     }
-
-    return;
   });
 
   return levels;
