@@ -1,17 +1,23 @@
 ---
 import Card from "@components/Card.astro";
 import IconCircle from "@components/IconCircle.astro";
-import { getContributions } from "@/utils/contributions";
+import {
+  getContributionsDays,
+  getContributionsCount,
+} from "@/utils/contributions";
 
-const contributions = await getContributions();
+const contributions = await getContributionsDays();
+const contributionsAmount = await getContributionsCount();
+
+console.log(contributions);
 ---
 
 <Card class="flex flex-col items-start justify-between gap-4 lg:gap-10">
   <IconCircle name="bar-chart" />
   <div class="flex flex-col gap-2">
     {
-      contributions && (
-        <p class="text-lg dark:text-neutral-400">{`${contributions} contributions`}</p>
+      contributionsAmount && (
+        <p class="text-lg dark:text-neutral-400">{`${contributionsAmount} contributions`}</p>
       )
     }
     <h2 class="text-2xl">Contributions op github</h2>

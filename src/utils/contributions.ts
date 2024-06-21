@@ -1,5 +1,8 @@
-import type { Response } from "@/types/contributions";
+import type { Response, Contribution } from "@/types/contributions";
 
+/**
+ * Fetches contributions data.
+ */
 export const getContributions = async () => {
   if (!import.meta.env.CONTRIBUTIONS_URL) {
     throw new Error("Missing env CONTRIBUTIONS_URL");
@@ -13,18 +16,41 @@ export const getContributions = async () => {
 
   const stats: Response = await response.json();
 
-  // Get total contributions from the last 30 days
-  const totalContributions = stats.contributions.reduce((total, item) => {
-    var days = 30;
-    var delta = days * 24 * 60 * 60 * 1000;
-    var result =
+  return stats;
+};
+
+/**
+ * Get contributions in the last x days
+ */
+export const getContributionsDays = async (amount: number = 30) => {
+  const stats = await getContributions();
+
+  const levels: Contribution[] = [];
+
+  stats.contributions.map((item) => {
+    const days = amount;
+    const delta = days * 24 * 60 * 60 * 1000;
+    const result =
       Math.abs(new Date().valueOf() - new Date(item.date).valueOf()) < delta;
 
     if (result) {
-      return total + item.count;
+      levels.push(item);
     }
 
-    return total;
+    return;
+  });
+
+  return levels;
+};
+
+/**
+ * Get total amount of contributions in last x days
+ */
+export const getContributionsCount = async (amount: number = 30) => {
+  const stats = await getContributionsDays(amount);
+
+  const totalContributions = stats.reduce((total, item) => {
+    return total + item.count;
   }, 0);
 
   return totalContributions;
