@@ -13,18 +13,18 @@ const remainingDays = 6 - lastDay;
 ---
 
 <Card
-  class="flex flex-col items-start justify-between gap-4 overflow-hidden lg:gap-10"
+  class="relative flex flex-col items-start justify-between gap-4 overflow-hidden lg:gap-10"
 >
   {
     contributions && (
-      <div class="relative hidden w-full justify-start lg:flex lg:justify-end">
-        <div class="grid -translate-x-14 -scale-100 grid-flow-col grid-rows-7 gap-1 lg:translate-x-10">
+      <div class="absolute inset-0 w-full justify-start opacity-15 lg:relative lg:justify-end lg:opacity-100">
+        <div class="grid -scale-100 grid-flow-col grid-rows-7 gap-1 lg:translate-x-10">
           {[...Array(remainingDays)].map(() => (
-            <div class="size-[10px] rounded-[2px] bg-contributions-0" />
+            <div class="aspect-square w-full rounded bg-contributions-0 lg:size-[10px] lg:rounded-[2px]" />
           ))}
           {contributions.reverse().map((item) => (
             <div
-              class="size-[10px] rounded-[2px]"
+              class="aspect-square w-full rounded lg:size-[10px] lg:rounded-[2px]"
               class:list={[
                 { "bg-contributions-0": item.level === 0 },
                 { "bg-contributions-1": item.level === 1 },
@@ -38,7 +38,7 @@ const remainingDays = 6 - lastDay;
       </div>
     )
   }
-  <div class="flex flex-col gap-1">
+  <div class="relative z-10 flex flex-col lg:gap-1">
     {
       contributionsAmount && (
         <p class="text-lg dark:text-neutral-400">{`${contributionsAmount} contributions`}</p>

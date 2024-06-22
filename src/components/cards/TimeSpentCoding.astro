@@ -8,13 +8,15 @@ const bg =
   "data:image/svg+xml;utf8,%3Csvg height=%22auto%22 viewBox=%220 0 1600 470%22 xmlns=%22http:%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath d=%22M0 171.55c16.8 26.878 50.4 122.431 84 134.39 33.6 11.96 50.4-65.62 84-74.596 33.6-8.976 50.4 58.792 84 29.717 33.6-29.075 50.4-151.914 84-175.092 33.6-23.178 50.4 9.743 84 59.201 33.6 49.46 50.4 203.905 84 188.092 33.6-15.813 50.4-221.094 84-267.156 33.6-46.063 50.4 39.94 84 36.843 33.6-3.096 50.4-58.894 84-52.324s50.4 55.034 84 85.175c33.6 30.142 50.4 54.74 84 65.532 33.6 10.79 50.4-12.212 84-11.577 33.6.634 50.4-13.95 84 14.748 33.6 28.699 50.4 112.7 84 128.744 33.6 16.043 50.4-55.295 84-48.527 33.6 6.767 50.4 94.822 84 82.365 33.6-12.458 50.4-138.46 84-144.65 33.6-6.192 50.4 116.397 84 113.693 33.6-2.705 67.2-101.773 84-127.217L1600 470H0Z%22 fill=%22%23a1a6fd1a%22%2F%3E%3Cpath d=%22M0 171.55c16.8 26.878 50.4 122.431 84 134.39 33.6 11.96 50.4-65.62 84-74.596 33.6-8.976 50.4 58.792 84 29.717 33.6-29.075 50.4-151.914 84-175.092 33.6-23.178 50.4 9.743 84 59.201 33.6 49.46 50.4 203.905 84 188.092 33.6-15.813 50.4-221.094 84-267.156 33.6-46.063 50.4 39.94 84 36.843 33.6-3.096 50.4-58.894 84-52.324s50.4 55.034 84 85.175c33.6 30.142 50.4 54.74 84 65.532 33.6 10.79 50.4-12.212 84-11.577 33.6.634 50.4-13.95 84 14.748 33.6 28.699 50.4 112.7 84 128.744 33.6 16.043 50.4-55.295 84-48.527 33.6 6.767 50.4 94.822 84 82.365 33.6-12.458 50.4-138.46 84-144.65 33.6-6.192 50.4 116.397 84 113.693 33.6-2.705 67.2-101.773 84-127.217%22 fill=%22none%22 stroke=%22%23a1a6fd%22 stroke-width=%224%22%2F%3E%3C%2Fsvg%3E";
 ---
 
-<Card class="flex flex-col items-start justify-between gap-4 lg:gap-10">
+<Card
+  class="relative flex flex-col items-start justify-between gap-4 overflow-hidden lg:gap-10"
+>
   <div
-    class="-ml-card-mobile hidden aspect-[160/47] w-[calc(100%+theme(spacing.card-mobile)+theme(spacing.card-mobile))] border-b-2 border-[#8488cdad] bg-cover bg-top bg-no-repeat lg:-ml-card-desktop lg:block lg:w-[calc(100%+theme(spacing.card-desktop)+theme(spacing.card-desktop))] lg:border-b"
+    class="absolute inset-0 -ml-card-mobile aspect-[160/47] w-[calc(100%+theme(spacing.card-mobile)+theme(spacing.card-mobile))] border-b-2 border-[#8488cdad] bg-cover bg-top bg-no-repeat opacity-40 lg:static lg:-ml-card-desktop lg:w-[calc(100%+theme(spacing.card-desktop)+theme(spacing.card-desktop))] lg:border-b lg:opacity-100"
     style=`background-image: url('${bg}');`
   >
   </div>
-  <div class="flex flex-col gap-1">
+  <div class="flex flex-col lg:gap-1">
     {
       timeSpentCoding && (
         <p class="text-lg dark:text-neutral-400">{timeSpentCoding}</p>
