@@ -18,7 +18,7 @@ const remainingDays = 6 - lastDay;
   {
     contributions && (
       <div class="absolute inset-0 w-full justify-start opacity-15 lg:relative lg:justify-end lg:opacity-100">
-        <div class="grid -scale-100 grid-flow-col grid-rows-7 gap-1 lg:translate-x-10">
+        <div class="grid -scale-100 grid-flow-col grid-rows-7 gap-2 md:gap-1 lg:translate-x-10">
           {[...Array(remainingDays)].map(() => (
             <div class="aspect-square w-full rounded bg-contributions-0 lg:size-[10px] lg:rounded-[2px]" />
           ))}
