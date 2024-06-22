@@ -10,11 +10,11 @@ const bg =
 
 <Card class="flex flex-col items-start justify-between gap-4 lg:gap-10">
   <div
-    class="-ml-card-mobile lg:-ml-card-desktop aspect-[160/47] w-[calc(100%+theme(spacing.card-mobile)+theme(spacing.card-mobile))] border-b-2 border-[#8488cdad] bg-cover bg-top bg-no-repeat lg:w-[calc(100%+theme(spacing.card-desktop)+theme(spacing.card-desktop))] lg:border-b"
+    class="-ml-card-mobile aspect-[160/47] w-[calc(100%+theme(spacing.card-mobile)+theme(spacing.card-mobile))] border-b-2 border-[#8488cdad] bg-cover bg-top bg-no-repeat lg:-ml-card-desktop lg:w-[calc(100%+theme(spacing.card-desktop)+theme(spacing.card-desktop))] lg:border-b"
     style=`background-image: url('${bg}');`
   >
   </div>
-  <div class="flex flex-col gap-2">
+  <div class="flex flex-col gap-1">
     {
       timeSpentCoding && (
         <p class="text-lg dark:text-neutral-400">{timeSpentCoding}</p>

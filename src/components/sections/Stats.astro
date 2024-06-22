@@ -2,11 +2,26 @@
 import TimeSpentCoding from "@/components/cards/TimeSpentCoding.astro";
 import Contributions from "@/components/cards/Contributions.astro";
 import Section from "@components/Section.astro";
+import Card from "../Card.astro";
 ---
 
 <Section class="col-span-full" title="Statistieken" subTitle="Laatste 30 dagen">
-  <div class="grid gap-x-grid-gutter gap-y-section-mobile lg:grid-cols-3">
+  <div
+    class="grid gap-x-grid-gutter gap-y-section-mobile md:grid-cols-2 lg:grid-cols-3"
+  >
     <TimeSpentCoding />
     <Contributions />
+    <div
+      class="flex flex-col gap-grid-gutter md:col-span-2 md:flex-row lg:col-span-1 lg:flex-col"
+    >
+      <Card class="flex flex-1 flex-col justify-center gap-1 lg:py-0">
+        <p class="text-lg dark:text-neutral-400">35 lorem ipsum</p>
+        <h2 class="text-2xl">lorem ipsum dolor</h2>
+      </Card>
+      <Card class="flex flex-1 flex-col justify-center gap-1 lg:py-0">
+        <p class="text-lg dark:text-neutral-400">35 lorem ipsum</p>
+        <h2 class="text-2xl">lorem ipsum dolor</h2>
+      </Card>
+    </div>
   </div>
 </Section>
