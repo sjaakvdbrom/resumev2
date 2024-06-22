@@ -10,7 +10,7 @@ const bg =
 
 <Card class="flex flex-col items-start justify-between gap-4 lg:gap-10">
   <div
-    class="-ml-card-mobile aspect-[160/47] w-[calc(100%+theme(spacing.card-mobile)+theme(spacing.card-mobile))] border-b-2 border-[#8488cdad] bg-cover bg-top bg-no-repeat lg:-ml-card-desktop lg:w-[calc(100%+theme(spacing.card-desktop)+theme(spacing.card-desktop))] lg:border-b"
+    class="-ml-card-mobile hidden aspect-[160/47] w-[calc(100%+theme(spacing.card-mobile)+theme(spacing.card-mobile))] border-b-2 border-[#8488cdad] bg-cover bg-top bg-no-repeat lg:-ml-card-desktop lg:block lg:w-[calc(100%+theme(spacing.card-desktop)+theme(spacing.card-desktop))] lg:border-b"
     style=`background-image: url('${bg}');`
   >
   </div>
@@ -20,6 +20,6 @@ const bg =
         <p class="text-lg dark:text-neutral-400">{timeSpentCoding}</p>
       )
     }
-    <h2 class="text-2xl">Tijd gespendeerd aan programmeren</h2>
+    <h2 class="text-2xl">Geprogrammeerd</h2>
   </div>
 </Card>

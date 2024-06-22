@@ -17,7 +17,7 @@ const remainingDays = 6 - lastDay;
 >
   {
     contributions && (
-      <div class="relative flex w-full justify-start lg:justify-end">
+      <div class="relative hidden w-full justify-start lg:flex lg:justify-end">
         <div class="grid -translate-x-14 -scale-100 grid-flow-col grid-rows-7 gap-1 lg:translate-x-10">
           {[...Array(remainingDays)].map(() => (
             <div class="size-[10px] rounded-[2px] bg-contributions-0" />
@@ -44,6 +44,6 @@ const remainingDays = 6 - lastDay;
         <p class="text-lg dark:text-neutral-400">{`${contributionsAmount} contributions`}</p>
       )
     }
-    <h2 class="text-2xl">Contributions op github</h2>
+    <h2 class="text-2xl">Op github</h2>
   </div>
 </Card>
