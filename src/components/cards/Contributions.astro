@@ -39,11 +39,7 @@ const remainingDays = 6 - lastDay;
     )
   }
   <div class="relative z-10 flex flex-col lg:gap-1">
-    {
-      contributionsAmount && (
-        <p class="text-lg dark:text-neutral-400">{`${contributionsAmount} contributions`}</p>
-      )
-    }
-    <h2 class="text-2xl">Op github</h2>
+    {contributionsAmount && <p class="text-lg dark:text-neutral-400">Github</p>}
+    <h2 class="text-2xl">{`${contributionsAmount} contributions`}</h2>
   </div>
 </Card>
