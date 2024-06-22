@@ -20,9 +20,9 @@ const remainingDays = 6 - lastDay;
       <div class="relative flex w-full justify-start lg:justify-end">
         <div class="grid -translate-x-14 -scale-100 grid-flow-col grid-rows-7 gap-1 lg:translate-x-10">
           {[...Array(remainingDays)].map(() => (
-            <div class="bg-contributions-0 size-[10px] rounded-[2px]" />
+            <div class="size-[10px] rounded-[2px] bg-contributions-0" />
           ))}
-          {contributions.reverse().map((item, index) => (
+          {contributions.reverse().map((item) => (
             <div
               class="size-[10px] rounded-[2px]"
               class:list={[
